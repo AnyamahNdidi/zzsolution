@@ -58,7 +58,7 @@ const getAll = async (req, res)=>{
 
 const getOnePro = async (req, res)  =>{
   try{
-    const getOne = await productSchema.findById(req.params.id);
+    const getOne = await productSchema.findById(req.params.id).populate("person");
 
     if(getOne.length < 1){
       res.status(404).json({
